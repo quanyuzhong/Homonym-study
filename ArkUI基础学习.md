@@ -23,3 +23,73 @@
 3. `bulid(){}`:只允许有 **唯一的一个容器根组件。**
 ### 内容组件
 1. `Text('内容');`：内部存放内容
+2. `Image(图像资源路径)`:为界面添加图像资源
+```typescript
+    Image(图像资源路径)
+```
+
+![](./image/image7.png)
+ * 本地图片的写法:`Image($r('app,media.xx))`
+   * 图片的路径不能存在中文路径
+ * 网络图片:`http:xxx`
+```typescript
+Image($r('app.media.quanyu')).width(200);
+Image('https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/103/404/958/0260086000103404958.20250124163733.25530158864004726108414386177658:50001231000000:2800:1CC1DC504F89B788C73C5763F9A64A8127B26836ED465B79C22D17B09988AA18.jpg').width(200);
+```
+3. 在`ArkTS`语言中， **对于svg**图片可以用代码修改颜色。
+## 通用属性---所有属性都能使用
+```typescript
+组件
+    .属性(值)
+```
+![](./image/image5.png)
+1. 对于`phone`版，满屏尺寸是 360`vp`,或者写`.width('100%)`
+
+## 文本属性---使用文本属性美化文字外观样式
+![](./image/image6.png)
+
+1. 图片太大可以使用 **通用属性**来调整--->调整一个`.width()`就可以等比例缩放图片大小。
+## 内外边距属性--调整组件及内容的位置
+1. 四个方向间距相同：
+```typescript
+组件
+    .padding(数值)
+    .margin(数值)
+```
+1. 四个方向间距不同
+```typescript
+组件
+    .padding({top: 10, bottom: 20, left: 30, right: 40})
+    .margin({top: 10, bottom: 20, left: 30, right: 40})
+```
+## 边框属性--为组件添加边框效果
+```typescript
+组件
+    .border({
+        width: 粗细,
+        color: 颜色,//使用Color枚举类型进行选择变换
+        style: 线条样式,//BorderStyle枚举类型进行变换
+        radius: 圆角度数,
+    })
+```
+## 控制文本水平居中属性
+```typescript
+组件
+    .textAlign(TextAlign.Center)
+```
+```typescript
+    .border({
+      width: 5,
+      color: Color.Black,
+      style: BorderStyle.Dotted,
+      radius: 30
+    })
+```
+# 案例学习
+## 歌曲列表
+1. 先整体，再局部
+2. 先布局，再内容，后美化
+
+
+
+
