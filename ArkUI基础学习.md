@@ -21,6 +21,10 @@
 1. `Column(){}`：文本可以竖着排列
 2. `Row(){}`：文本可以横着排列
 3. `bulid(){}`:只允许有 **唯一的一个容器根组件。**
+4. `stack(){}`:层叠布局组件
+#### 相关属性
+1. `layoutWeight(数字)`:将外层组件剩余尺寸分成指定份数，当前组件占用对应的份数。
+2. 扩充组件安全区代码：`.expandSafeArea([SafeAreaType.SYSTEM], [SafeAreaEdge.TOP,SafeAreaEdge.BOTTOM])`
 ### 内容组件
 1. `Text('内容');`：内部存放内容
 2. `Image(图像资源路径)`:为界面添加图像资源
@@ -37,6 +41,18 @@ Image($r('app.media.quanyu')).width(200);
 Image('https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/103/404/958/0260086000103404958.20250124163733.25530158864004726108414386177658:50001231000000:2800:1CC1DC504F89B788C73C5763F9A64A8127B26836ED465B79C22D17B09988AA18.jpg').width(200);
 ```
 3. 在`ArkTS`语言中， **对于svg**图片可以用代码修改颜色。
+```typescript
+Image($r('app.media.image'))
+  .width(24)
+  .fillColor('#f6f6f6')
+```
+4. 可滚动的组件是:
+```typescript
+List(){
+    ListItem(){具体内容}
+}
+    .scrollBar(BarState.Off)//删除移动端的滚动条
+```
 ## 通用属性---所有属性都能使用
 ```typescript
 组件
@@ -85,10 +101,25 @@ Image('https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyP
       radius: 30
     })
 ```
+## LayoutWeight(数字)作用是
+将外层组件剩余尺寸分成指定份数，当前组件占用对应的份数
+主要用于 **容器组件**中。
+## 点击属性
+1. 点击该组件可以执行内部的箭头函数来修改相应的状态变量
+
+```typescript
+.onClick(() => {
+    this.num++
+})
+```
+
 # 案例学习
 ## 歌曲列表
 1. 先整体，再局部
 2. 先布局，再内容，后美化
+## 歌单交互
+![](./image/image12.png)
+
 
 
 
